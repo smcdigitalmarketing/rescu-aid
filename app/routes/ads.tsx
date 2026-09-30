@@ -203,10 +203,7 @@ export default function Ads() {
       <p className="mt-2 max-w-3xl text-[#536175]">
         {imageAds.length} image ads and {videoAds.length} video ads for Meta and
         TikTok, each pointing at one PDP variant with UTMs, so every order is
-        tagged with both the creative and the page. Copy follows the same claim
-        rules as the PDPs: product after back blows and abdominal thrusts, no
-        unverified claims, and no &quot;you&quot; statements about age, health
-        or living situation.
+        tagged with both the creative and the page.
       </p>
 
       <section className="mt-12">

@@ -3,7 +3,7 @@ import type { Route } from "./+types/v3";
 import { PageShell, Section } from "~/components/pdp/layout";
 import { StickyBuyBar, ValueStack } from "~/components/pdp/buy";
 import { Picture } from "~/components/pdp/media";
-import { AsSeenOn, ClaimBadges, ClaimRating } from "~/components/pdp/claims";
+import { AsSeenOn, ClaimRating, TrustBadges } from "~/components/pdp/claims";
 import {
   FaqList,
   Guarantee,
@@ -101,7 +101,7 @@ export default function V3() {
                 Not for you? {policy.guaranteeDays}-day money-back guarantee
               </li>
             </ul>
-            <ClaimBadges className="mt-4" />
+            <TrustBadges className="mt-5" />
             <div className="mt-5">
               <ReviewCard id="jessica-k" compact />
             </div>

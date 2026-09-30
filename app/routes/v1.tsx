@@ -15,7 +15,7 @@ import {
   StickyBuyBar,
 } from "~/components/pdp/buy";
 import { Gallery, Picture } from "~/components/pdp/media";
-import { AsSeenOn, ClaimBadges, ClaimRating } from "~/components/pdp/claims";
+import { AsSeenOn, ClaimRating, TrustBadges } from "~/components/pdp/claims";
 import {
   Comparison,
   FaqList,
@@ -109,7 +109,7 @@ export default function V1() {
                 <CtaButton state={state} />
               </div>
               <BuyMeta state={state} />
-              <ClaimBadges className="mt-4" />
+              <TrustBadges className="mt-5" />
             </div>
           </div>
         </div>

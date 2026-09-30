@@ -22,7 +22,7 @@ npm run dev
 ## Where things live
 
 - `app/data/product.ts`: price, Shopify variant IDs, per-variant offers, FAQs, safety notice and policy terms. Routes never hard-code these.
-- `app/data/claims.ts`: regulatory and statistical claims (FDA, Made in USA, ratings, "lives saved", …). All are **off** until the client supplies proof.
+- `app/data/claims.ts`: the client's claims (FDA registered, Made in USA, rating, As seen on, …), shown as trust badges. This build is a demo proposal, so `SHOW_UNSOURCED_CLAIMS = true` shows them without sources. Set it to `false` before any live traffic; each claim then needs a `source` to appear.
 - `app/data/reviews.ts`: testimonials from the live site, which the client confirmed are genuine.
 - `app/data/image-slots.ts`: every image on the pages, with its generation prompt.
 - `app/lib/cart.ts`: builds Shopify cart links. Each order carries `attributes[pdp_variant]` and any UTM parameters, so sales can be split by variant in Shopify.

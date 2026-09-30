@@ -26,7 +26,7 @@ import {
   TrustBar,
 } from "~/components/pdp/content";
 import { RiskGroups, RoomMap, Timeline } from "~/components/pdp/story";
-import { AsSeenOn, ClaimBadges, ClaimRating } from "~/components/pdp/claims";
+import { AsSeenOn, ClaimRating, TrustBadges } from "~/components/pdp/claims";
 import { faqs, money, offers, perKit, policy, product } from "~/data/product";
 import { img, imgs } from "~/lib/images";
 import { useOffer } from "~/lib/use-offer";
@@ -189,7 +189,7 @@ export default function V2() {
                 <CtaButton state={state} />
               </div>
               <BuyMeta state={state} />
-              <ClaimBadges className="mt-4" />
+              <TrustBadges className="mt-5" />
             </div>
           </div>
         </div>

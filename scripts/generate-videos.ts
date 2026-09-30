@@ -57,13 +57,16 @@ if (args["dry-run"] || !todo.length) {
   process.exit(0);
 }
 
+const frameFile = (slot: string) =>
+  join(root, "app/assets/generated", `${slot}.webp`);
 const missing = todo.filter(
   (c) =>
-    !existsSync(join(root, "app/assets/generated", `${c.firstFrame}.webp`)),
+    !existsSync(frameFile(c.firstFrame)) ||
+    (c.lastFrame && !existsSync(frameFile(c.lastFrame))),
 );
 if (missing.length) {
   console.error(
-    `Missing first frames: ${missing.map((c) => c.firstFrame).join(", ")}. Run \`npm run images\` first.`,
+    `Missing frames for clip(s) ${missing.map((c) => c.id).join(", ")}. Run \`npm run images\` first.`,
   );
   process.exit(1);
 }
@@ -79,15 +82,17 @@ const ai = new GoogleGenAI({ apiKey });
 mkdirSync(outDir, { recursive: true });
 
 async function generateClip(clip: (typeof videoClips)[number]) {
-  const frame = await sharp(
-    join(root, "app/assets/generated", `${clip.firstFrame}.webp`),
-  )
-    .png()
-    .toBuffer();
+  const still = async (slot: string) => ({
+    imageBytes: (
+      await sharp(join(root, "app/assets/generated", `${slot}.webp`))
+        .png()
+        .toBuffer()
+    ).toString("base64"),
+    mimeType: "image/png",
+  });
   let op = await ai.models.generateVideos({
     model,
-    prompt: clip.prompt,
-    image: { imageBytes: frame.toString("base64"), mimeType: "image/png" },
+    source: { prompt: clip.prompt, image: await still(clip.firstFrame) },
     config: {
       aspectRatio: "9:16",
       durationSeconds: CLIP_SECONDS,
@@ -95,6 +100,7 @@ async function generateClip(clip: (typeof videoClips)[number]) {
       personGeneration: "allow_adult",
       negativePrompt: VEO_NEGATIVE,
       numberOfVideos: 1,
+      ...(clip.lastFrame ? { lastFrame: await still(clip.lastFrame) } : {}),
     },
   });
   const started = Date.now();
@@ -132,6 +138,7 @@ for (const clip of todo) {
           model,
           tier,
           firstFrame: clip.firstFrame,
+          lastFrame: clip.lastFrame,
           prompt: clip.prompt,
           negativePrompt: VEO_NEGATIVE,
           costUsd: clipCost,

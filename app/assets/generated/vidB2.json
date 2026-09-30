@@ -5,11 +5,11 @@
   "refs": [
     "device"
   ],
-  "prompt": "Vertical cinematic still frame: a woman in her seventies cooking alone in her bright kitchen, stirring a pot on the stove in warm morning light. the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) rests on the counter beside the stove, clearly visible. Calm, content, dignified. Nobody is choking or distressed. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "prompt": "Vertical cinematic still frame inside a modern family car in warm late-afternoon light: an adult's hand holds the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) just above the open centre-console storage, about to set it inside. An empty child car seat is softly out of focus in the back seat. No people visible other than the hand and forearm. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
   "usage": {
-    "input": 464,
-    "output": 1306
+    "input": 476,
+    "output": 1300
   },
-  "costUsd": 0.157648,
-  "generatedAt": "2026-09-30T04:18:23.531Z"
+  "costUsd": 0.156952,
+  "generatedAt": "2026-09-30T04:37:53.350Z"
 }

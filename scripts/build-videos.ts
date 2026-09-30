@@ -143,7 +143,7 @@ for (const video of videoAds) {
       "-preset",
       "medium",
       "-crf",
-      "20",
+      "23",
       "-pix_fmt",
       "yuv420p",
       "-c:a",

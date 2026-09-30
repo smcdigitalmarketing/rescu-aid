@@ -227,8 +227,8 @@ export const imageSlots = {
   },
   vidB2: {
     id: "vidB2",
-    alt: "Woman in her seventies cooking, RescUAid+ on the counter by the stove",
-    prompt: `Vertical cinematic still frame: a woman in her seventies cooking alone in her bright kitchen, stirring a pot on the stove in warm morning light. ${DEVICE} rests on the counter beside the stove, clearly visible. Calm, content, dignified. Nobody is choking or distressed. ${RULES}`,
+    alt: "A hand placing RescUAid+ into a family car's centre console",
+    prompt: `Vertical cinematic still frame inside a modern family car in warm late-afternoon light: an adult's hand holds ${DEVICE} just above the open centre-console storage, about to set it inside. An empty child car seat is softly out of focus in the back seat. No people visible other than the hand and forearm. ${RULES}`,
     aspect: "9:16",
     refs: ["device"],
   },

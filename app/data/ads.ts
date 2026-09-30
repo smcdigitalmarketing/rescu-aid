@@ -56,6 +56,8 @@ export type VideoClip = {
   id: string;
   /** Generated 9:16 first frame (image-to-video keeps the product accurate). */
   firstFrame: SlotId;
+  /** Optional last frame; pinning both ends stops Veo from redesigning the product mid-motion. */
+  lastFrame?: SlotId;
   prompt: string;
 };
 
@@ -189,16 +191,22 @@ export const imageAds: ImageAd[] = [
 ];
 
 const VEO_RULES =
-  "The red device must keep exactly the same shape, colour, white arrow label and clear mask as in the first frame throughout. No dialogue, no voiceover, no music; soft natural room ambience only. No on-screen text.";
+  "The red device must keep exactly the same shape, colour, white arrow label and clear mask as in the first frame throughout. No dialogue, no voiceover, no music; quiet natural room tone only. No on-screen text.";
 
+/**
+ * Visual exclusions only. Sound words ("choking, coughing, gagging") here made
+ * Veo's audio filter reject the quieter clips; the prompts themselves keep
+ * every scene calm.
+ */
 export const VEO_NEGATIVE =
-  "text, captions, subtitles, logos, watermark, choking, coughing, gagging, distress, panic, children, distorted hands, extra fingers, extra devices, morphing product";
+  "text, captions, subtitles, logos, watermark, distorted hands, extra fingers, extra devices, morphing product";
 
 export const videoClips: VideoClip[] = [
   {
     id: "A1",
     firstFrame: "vidA1",
-    prompt: `Calm first-aid training demonstration. The instructor slowly raises the red suction device and places its clear mask over the seated volunteer's mouth and nose, holding a secure seal, then presses the handle down toward his face. Steady, unhurried movements. Static camera with a gentle push-in. ${VEO_RULES}`,
+    lastFrame: "vidA2",
+    prompt: `Calm first-aid training demonstration. The instructor steadily moves the red device forward and places its clear mask over the seated volunteer's mouth and nose with a secure seal, while the camera slowly pushes in to a close-up of the mask, the device and her hand. Steady, unhurried movements. ${VEO_RULES}`,
   },
   {
     id: "A2",
@@ -213,7 +221,7 @@ export const videoClips: VideoClip[] = [
   {
     id: "B2",
     firstFrame: "vidB2",
-    prompt: `The woman stirs the pot, glances at the red device on the counter beside the stove, gives a small reassured smile and continues cooking. Gentle handheld camera, warm morning light, soft kitchen sounds. ${VEO_RULES}`,
+    prompt: `The hand gently sets the red device down into the open centre console and withdraws, leaving the device resting there in clear view while the camera slowly pushes in on it. Warm late-afternoon light through the car windows. Audio: a soft click as the device settles into the console, gentle car-interior ambience and faint birdsong outside. The red device must keep exactly the same shape, colour, white arrow label and clear mask as in the first frame throughout. No dialogue, no voiceover, no music. No on-screen text.`,
   },
 ];
 

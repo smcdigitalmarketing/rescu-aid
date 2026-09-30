@@ -28,7 +28,7 @@ export type ImageSlot = {
 };
 
 const DEVICE =
-  "the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow, and a clear soft silicone face mask attached to one end)";
+  "the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end)";
 
 const RULES = [
   "Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition.",
@@ -78,7 +78,7 @@ export const imageSlots = {
   stepPull: {
     id: "stepPull",
     alt: "Step 3: pull the handle back",
-    prompt: `Close-up of an adult hand pulling the handle of ${DEVICE} back and away from the face, the mask still sealed over a calm seated adult volunteer's mouth and nose, first-aid training setting. The second reference image shows how the device is held; do not copy the people in it. Clean, bright, soft daylight. ${RULES}`,
+    prompt: `Side-view close-up of an adult hand gripping the capped handle end of ${DEVICE} and pulling it straight back, away from the face, the mask still sealed over a calm seated adult volunteer's mouth and nose, first-aid training setting. The arrow on the label points away from the face, in the direction of the pull. The second reference image shows how the device is held; do not copy the people in it. Clean, bright, soft daylight. ${RULES}`,
     aspect: "1:1",
     refs: ["device", "in-use-closeup"],
   },
@@ -149,7 +149,7 @@ export const imageSlots = {
     id: "v3Hero",
     alt: "RescUAid+ anti-choking device on a bright yellow background",
     placeholder: "kit",
-    prompt: `Bold direct-response product photograph: ${DEVICE}, angled dynamically at about 30 degrees, floating over a saturated sunny-yellow (#FFE14D) seamless background with a crisp soft shadow beneath. High contrast, punchy, clean edges, centred with generous room around the product. ${RULES}`,
+    prompt: `Bold direct-response product photograph: ${DEVICE}, angled dynamically at about 30 degrees, floating over a saturated sunny-yellow (#FFE14D) seamless background with a crisp soft shadow beneath. The entire device and the entire mask sit well inside the frame, with at least 12% empty yellow margin on every side; nothing touches or crosses the edges. High contrast, punchy, clean edges, centred. ${RULES}`,
     aspect: "1:1",
     refs: ["device"],
   },

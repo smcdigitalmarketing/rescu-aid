@@ -203,6 +203,43 @@ export const imageSlots = {
     refs: ["device"],
   },
 
+  // ── Ad creatives, round 2 ──
+  adUgc: {
+    id: "adUgc",
+    alt: "A hand holding RescUAid+ up in a lived-in family kitchen",
+    prompt: `Casual smartphone photo in an authentic user-generated style, slightly imperfect handheld framing: a woman's hand holds ${DEVICE} up toward the camera in a real, lived-in family kitchen with natural window light, a fruit bowl and a kettle on the counter behind. The top third of the frame is plain upper cabinets and wall. No fridge magnets, papers, signs or lettering anywhere. ${RULES}`,
+    aspect: "4:5",
+    refs: ["device"],
+  },
+  adChecklist: {
+    id: "adChecklist",
+    alt: "Smoke alarm, fire extinguisher, first-aid kit and RescUAid+ laid out on a wooden surface",
+    prompt: `Top-down flat-lay product photograph on warm light oak wood: a white round smoke alarm, a small red home fire extinguisher, a plain first-aid kit pouch, and ${DEVICE}, neatly arranged in a loose column along the right half of the frame. The left half of the frame is plain empty wood. Soft, even daylight, gentle shadows. Every object is blank: no printed words, labels, logos or symbols on anything except the device's own white arrow label. ${RULES}`,
+    aspect: "4:5",
+    refs: ["device"],
+  },
+  adInside: {
+    id: "adInside",
+    alt: "RescUAid+ device, adult mask and child mask laid out neatly",
+    prompt: `Knolling-style top-down product photograph on a seamless very light cool-grey background: ${DEVICE} with its mask removed and placed beside it, one larger adult mask and one smaller child mask, arranged in a tidy, evenly spaced horizontal row across the middle of a square frame, with generous empty space above and below. Crisp, even studio light, soft shadows. ${RULES}`,
+    aspect: "1:1",
+    refs: ["device"],
+  },
+  adBackupStory: {
+    id: "adBackupStory",
+    alt: "RescUAid+ standing upright on a light grey studio background",
+    prompt: `Premium medical-product studio photograph for a vertical Stories ad: ${DEVICE}, standing upright on its attached mask in the lower-middle of the frame on a seamless very light cool-grey background with a soft reflection. The top half of the frame is plain, empty background. Calm, clinical, trustworthy. ${RULES}`,
+    aspect: "9:16",
+    refs: ["device"],
+  },
+  adEveryRoomStory: {
+    id: "adEveryRoomStory",
+    alt: "Family dinner in a warm kitchen with RescUAid+ on the counter",
+    prompt: `Warm, candid lifestyle photograph for a vertical Stories ad: a family (grandparents, parents and a clearly older child of about five, no babies or infants) sharing dinner in a cozy kitchen at golden hour, slightly soft focus, in the middle of the frame. In the lower part of the frame, in sharp focus on the counter, sits ${DEVICE}. The top third of the frame is a plain, softly lit cream wall with nothing on it: no signs, posters, frames or lettering. Nobody is choking or distressed. ${RULES}`,
+    aspect: "9:16",
+    refs: ["device"],
+  },
+
   // ── Video first frames (Veo image-to-video; adults only, per Veo's rules) ──
   vidA1: {
     id: "vidA1",
@@ -227,10 +264,10 @@ export const imageSlots = {
   },
   vidB2: {
     id: "vidB2",
-    alt: "A hand placing RescUAid+ into a family car's centre console",
-    prompt: `Vertical cinematic still frame inside a modern family car in warm late-afternoon light: an adult's hand holds ${DEVICE} just above the open centre-console storage, about to set it inside. An empty child car seat is softly out of focus in the back seat. No people visible other than the hand and forearm. ${RULES}`,
+    alt: "Grandmother setting RescUAid+ on the kitchen counter",
+    prompt: `Vertical cinematic still frame in the same warm kitchen, golden-hour light and family as the second reference image: a closer shot of the grandmother in her seventies standing at the counter, her hand setting ${DEVICE} down beside a fruit bowl, the rest of the family softly out of focus at the table behind her. No children. Nobody is choking or distressed. ${RULES}`,
     aspect: "9:16",
-    refs: ["device"],
+    refs: ["device", "@vidB1"],
   },
 } satisfies Record<string, ImageSlot>;
 

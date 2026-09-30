@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import type { Route } from "./+types/home";
 import { Logo } from "~/components/pdp/brand";
-import { claims } from "~/data/claims";
+import { claim, claims, type ClaimKey } from "~/data/claims";
 import { fontHref } from "~/lib/seo";
 
 export const links: Route.LinksFunction = () => [
@@ -50,7 +50,10 @@ const VARIANTS = [
 ];
 
 export default function Home() {
-  const pending = Object.entries(claims).filter(([, c]) => !c.enabled);
+  // A claim renders only when enabled AND it has a source and wording (see claim()).
+  const pending = (Object.keys(claims) as ClaimKey[])
+    .filter((k) => claim(k) === null)
+    .map((k) => [k, claims[k]] as const);
   return (
     <main className="mx-auto max-w-4xl px-4 py-12 font-[Inter,sans-serif] text-[#0f1b2d]">
       <Logo className="h-12" />
@@ -108,6 +111,28 @@ export default function Home() {
         ))}
       </ul>
 
+      <div className="mt-4 rounded-xl border-2 border-dashed border-[#b45309]/40 bg-[#fffbeb] p-5">
+        <p className="font-bold">Proposal demo: all client claims shown</p>
+        <p className="mt-1 text-sm text-[#536175]">
+          The same pages with every client-supplied claim (FDA, Made in USA,
+          rating, As seen on, and more), each marked pending verification under
+          a demo banner. For internal review only; the live pages above stay
+          claim-free until each claim has a source.
+        </p>
+        <p className="mt-3 flex flex-wrap gap-2">
+          {["v1", "v2", "v3"].map((v) => (
+            <a
+              key={v}
+              href={`/demo/${v}`}
+              className="inline-flex items-center gap-1 rounded-lg bg-white px-3 py-1.5 text-sm font-semibold text-[#13306b] ring-1 ring-[#e2e7ee] hover:ring-[#13306b]"
+            >
+              Demo {v.toUpperCase()}{" "}
+              <ArrowRight className="size-3.5" aria-hidden="true" />
+            </a>
+          ))}
+        </p>
+      </div>
+
       <a
         href="/ads"
         className="group mt-4 flex items-center justify-between rounded-xl border border-[#e2e7ee] bg-white p-5 transition hover:border-[#13306b] hover:shadow-md"
@@ -127,7 +152,7 @@ export default function Home() {
 
       <section className="mt-10 rounded-xl border border-[#f2c94c] bg-[#fffbeb] p-5 text-sm">
         <h2 className="font-bold">
-          Claims switched off until substantiated ({pending.length})
+          Claims not showing on the pages ({pending.length})
         </h2>
         <ul className="mt-2 grid gap-1.5 text-[#536175]">
           {pending.map(([key, c]) => (

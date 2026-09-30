@@ -1,0 +1,15 @@
+{
+  "id": "adUgc",
+  "model": "gemini-3-pro-image",
+  "aspect": "4:5",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Casual smartphone photo in an authentic user-generated style, slightly imperfect handheld framing: a woman's hand holds the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) up toward the camera in a real, lived-in family kitchen with natural window light, a fruit bowl and a kettle on the counter behind. The top third of the frame is plain upper cabinets and wall. No fridge magnets, papers, signs or lettering anywhere. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 488,
+    "output": 1319
+  },
+  "costUsd": 0.159256,
+  "generatedAt": "2026-09-30T05:12:18.437Z"
+}

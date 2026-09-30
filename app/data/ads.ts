@@ -188,6 +188,110 @@ export const imageAds: ImageAd[] = [
         "The gift they'll hope they never use. RescUAid+ for Grandma's kitchen. Buy 2, get 1 free.",
     },
   },
+
+  // ── Round 2 ──
+  {
+    id: "ad-pov",
+    theme: "v3",
+    name: "POV: the thing you hope you never need",
+    angle:
+      "Native UGC style for TikTok and Reels (casual phone photo, caption boxes)",
+    format: "4:5",
+    bg: "adUgc",
+    landing: "v3",
+    copy: {
+      primary: [
+        "Finally added this to the kitchen drawer. Back blows and abdominal thrusts come first, and RescUAid+ is the backup if they aren't working. Adult and child masks in the box.",
+        "The most boring purchase that gives you real peace of mind. Buy 2, get 1 free, plus a free Choking Response Handbook.",
+      ],
+      headline: "The backup plan for your kitchen",
+      description: "Buy 2, get 1 free",
+      cta: "Shop Now",
+      tiktok:
+        "POV: you finally bought the thing you hope you never need. Back blows first, this is the backup.",
+    },
+  },
+  {
+    id: "ad-checklist",
+    theme: "v2",
+    name: "Home safety checklist",
+    angle:
+      "Completes a checklist people already have: smoke alarm, extinguisher, first-aid kit",
+    format: "4:5",
+    bg: "adChecklist",
+    landing: "v2",
+    copy: {
+      primary: [
+        "Smoke alarm ✓ Fire extinguisher ✓ First-aid kit ✓\n\nYou've planned for a fire. RescUAid+ is the backup for choking, for when back blows and abdominal thrusts aren't working.",
+        "Complete your home safety kit. RescUAid+ comes with adult and child masks, with no batteries and no expiry unless used.",
+      ],
+      headline: "Complete your home safety kit",
+      description: "Adult + child masks included",
+      cta: "Shop Now",
+      tiktok:
+        "Smoke alarm ✓ Extinguisher ✓ First-aid kit ✓ Choking backup? Complete the kit.",
+    },
+  },
+  {
+    id: "ad-inside",
+    theme: "v1",
+    name: "What's in the kit",
+    angle:
+      "Product clarity: exactly what arrives, for people comparing options",
+    format: "1:1",
+    bg: "adInside",
+    landing: "v1",
+    copy: {
+      primary: [
+        "One kit, every age from 12 months up: the RescUAid+ suction device, an adult mask and a child mask, plus step-by-step instructions.",
+        "No batteries, no charging, and no expiry unless used. Keep it in a kitchen drawer and hope you never need it.",
+      ],
+      headline: "Everything in one kit",
+      description: "Adult + child masks included",
+      cta: "Learn More",
+      tiktok:
+        "What's inside a RescUAid+ kit: the device, an adult mask and a child mask.",
+    },
+  },
+  {
+    id: "ad-backup-story",
+    theme: "v1",
+    name: "The backup plan (Stories)",
+    angle: "9:16 cut of ad 1 for Stories, Reels and TikTok placements",
+    format: "9:16",
+    bg: "adBackupStory",
+    landing: "v1",
+    copy: {
+      primary: [
+        "Back blows and abdominal thrusts always come first. If they aren't working, RescUAid+ is your next step: place, press, pull.",
+        "The backup to recognized choking first aid, with adult and child masks in every kit.",
+      ],
+      headline: "The backup plan for choking emergencies",
+      description: "Adult + child masks included",
+      cta: "Shop Now",
+      tiktok: "Back blows first. If they aren't working: place, press, pull.",
+    },
+  },
+  {
+    id: "ad-every-room-story",
+    theme: "v2",
+    name: "Every room, every age (Stories)",
+    angle: "9:16 cut of ad 2 for Stories, Reels and TikTok placements",
+    format: "9:16",
+    bg: "adEveryRoomStory",
+    landing: "v2",
+    copy: {
+      primary: [
+        "Choking can happen at any age. Keep a RescUAid+ in the kitchen, the car and at the grandparents'. Buy 2, get the 3rd free.",
+        "One for every floor: adult and child masks in every kit.",
+      ],
+      headline: "Buy 2, get 1 free: one for every floor",
+      description: "Adult + child masks included",
+      cta: "Shop Now",
+      tiktok:
+        "One RescUAid+ for every table. Kitchen, car, Grandma's. Buy 2, get 1 free.",
+    },
+  },
 ];
 
 const VEO_RULES =
@@ -221,7 +325,7 @@ export const videoClips: VideoClip[] = [
   {
     id: "B2",
     firstFrame: "vidB2",
-    prompt: `The hand gently sets the red device down into the open centre console and withdraws, leaving the device resting there in clear view while the camera slowly pushes in on it. Warm late-afternoon light through the car windows. Audio: a soft click as the device settles into the console, gentle car-interior ambience and faint birdsong outside. The red device must keep exactly the same shape, colour, white arrow label and clear mask as in the first frame throughout. No dialogue, no voiceover, no music. No on-screen text.`,
+    prompt: `The grandmother sets the red device down on the counter within easy reach, glances at it and smiles, then turns back toward the family. Warm golden-hour light, gentle kitchen sounds and soft laughter. ${VEO_RULES}`,
   },
 ];
 
@@ -300,8 +404,9 @@ export const videoAds: VideoAd[] = [
       },
       {
         clip: "B2",
-        trim: [0.5, 7],
-        overlays: [{ overlay: "b2", from: 0.3, to: 6.5 }],
+        // This take opens with a ~2.5s cross-dissolve from an earlier first frame; start after it.
+        trim: [2.75, 8],
+        overlays: [{ overlay: "b2", from: 0.2, to: 5.25 }],
       },
     ],
     endCard: 2.5,

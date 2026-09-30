@@ -3,13 +3,14 @@
   "model": "gemini-3-pro-image",
   "aspect": "9:16",
   "refs": [
-    "device"
+    "device",
+    "@vidB1"
   ],
-  "prompt": "Vertical cinematic still frame inside a modern family car in warm late-afternoon light: an adult's hand holds the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) just above the open centre-console storage, about to set it inside. An empty child car seat is softly out of focus in the back seat. No people visible other than the hand and forearm. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "prompt": "Vertical cinematic still frame in the same warm kitchen, golden-hour light and family as the second reference image: a closer shot of the grandmother in her seventies standing at the counter, her hand setting the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) down beside a fruit bowl, the rest of the family softly out of focus at the table behind her. No children. Nobody is choking or distressed. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
   "usage": {
-    "input": 476,
-    "output": 1300
+    "input": 740,
+    "output": 1328
   },
-  "costUsd": 0.156952,
-  "generatedAt": "2026-09-30T04:37:53.350Z"
+  "costUsd": 0.16084,
+  "generatedAt": "2026-09-30T05:15:40.300Z"
 }

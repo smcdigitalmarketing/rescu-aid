@@ -3,6 +3,7 @@ import type { Route } from "./+types/v3";
 import { PageShell, Section } from "~/components/pdp/layout";
 import { StickyBuyBar, ValueStack } from "~/components/pdp/buy";
 import { Picture } from "~/components/pdp/media";
+import { AsSeenOn, ClaimBadges, ClaimRating } from "~/components/pdp/claims";
 import {
   FaqList,
   Guarantee,
@@ -66,6 +67,7 @@ export default function V3() {
             <h1 className="font-display text-[2.25rem] font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl">
               When back blows <span className="text-brand">aren't enough.</span>
             </h1>
+            <ClaimRating className="mt-2" />
             <p className="mt-3 text-[15px] text-muted sm:text-[17px]">
               {product.name}: the place, press, pull backup to recognized
               choking first aid.
@@ -99,6 +101,7 @@ export default function V3() {
                 Not for you? {policy.guaranteeDays}-day money-back guarantee
               </li>
             </ul>
+            <ClaimBadges className="mt-4" />
             <div className="mt-5">
               <ReviewCard id="jessica-k" compact />
             </div>
@@ -117,6 +120,7 @@ export default function V3() {
           ]}
         />
       </div>
+      <AsSeenOn className="border-b-2 border-ink" />
 
       <Section
         id="how"

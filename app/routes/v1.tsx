@@ -15,6 +15,7 @@ import {
   StickyBuyBar,
 } from "~/components/pdp/buy";
 import { Gallery, Picture } from "~/components/pdp/media";
+import { AsSeenOn, ClaimBadges, ClaimRating } from "~/components/pdp/claims";
 import {
   Comparison,
   FaqList,
@@ -86,6 +87,7 @@ export default function V1() {
             <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.1] text-balance sm:text-5xl">
               The backup plan when back blows aren't enough.
             </h1>
+            <ClaimRating className="mt-3" />
             <p className="mt-4 text-lg text-muted text-pretty">
               Call 911 and start back blows and abdominal thrusts. If the airway
               is still blocked, {product.name} is your next step: place, press,
@@ -107,6 +109,7 @@ export default function V1() {
                 <CtaButton state={state} />
               </div>
               <BuyMeta state={state} />
+              <ClaimBadges className="mt-4" />
             </div>
           </div>
         </div>
@@ -126,6 +129,7 @@ export default function V1() {
           ]}
         />
       </div>
+      <AsSeenOn className="border-b border-line" />
 
       <Section
         id="how"

@@ -150,7 +150,9 @@ function OfferAd({ ad }: { ad: ImageAd }) {
           <span className="grid size-[19cqw] rotate-[8deg] place-items-center rounded-full bg-brand text-center font-display font-bold uppercase leading-none text-brand-ink shadow-lg">
             <span>
               <span className="block text-[2.8cqw]">Save</span>
-              <span className="block text-[5.8cqw]">{money(bundleCompareAt(family) - bundlePrice(family))}</span>
+              <span className="block text-[5.8cqw]">
+                {money(bundleCompareAt(family) - bundlePrice(family))}
+              </span>
             </span>
           </span>
         </div>
@@ -160,7 +162,9 @@ function OfferAd({ ad }: { ad: ImageAd }) {
         <div className="mt-[2.4cqw] flex flex-wrap items-center gap-[2cqw]">
           <span className="rounded-full bg-white px-[3cqw] py-[1.2cqw] font-display text-[5cqw] font-bold shadow-sm">
             3 kits {money(bundlePrice(family))}{" "}
-            <s className="text-[3.6cqw] font-semibold text-ink/50">{money(bundleCompareAt(family))}</s>
+            <s className="text-[3.6cqw] font-semibold text-ink/50">
+              {money(bundleCompareAt(family))}
+            </s>
           </span>
           <span className="rounded-full bg-highlight px-[2.6cqw] py-[1cqw] text-[3.4cqw] font-semibold shadow-sm">
             + free Choking Response Handbook
@@ -188,7 +192,9 @@ function AloneAd({ ad }: { ad: ImageAd }) {
               key={s}
               className="flex items-center gap-[1.4cqw] rounded-full bg-white py-[0.9cqw] pl-[0.9cqw] pr-[2.8cqw] text-[3.2cqw] font-bold shadow-sm"
             >
-              <span className="grid size-[5cqw] place-items-center rounded-full bg-brand text-[2.8cqw] text-brand-ink">{i + 1}</span>
+              <span className="grid size-[5cqw] place-items-center rounded-full bg-brand text-[2.8cqw] text-brand-ink">
+                {i + 1}
+              </span>
               {s}
             </li>
           ))}
@@ -222,12 +228,179 @@ function GiftAd({ ad }: { ad: ImageAd }) {
   );
 }
 
+/** TikTok-style caption: white highlight that wraps line by line. */
+function Caption({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <p className={`text-center leading-[1.6] ${className}`}>
+      <span className="box-decoration-clone rounded-[1cqw] bg-white px-[1.8cqw] py-[0.5cqw] font-bold text-black">
+        {children}
+      </span>
+    </p>
+  );
+}
+
+function PovAd({ ad }: { ad: ImageAd }) {
+  return (
+    <Frame format={ad.format} theme={ad.theme} bg={ad.bg}>
+      <div className="absolute inset-0 flex flex-col items-center px-[8cqw] pb-[6cqw] pt-[8cqw]">
+        <Caption className="text-[5.4cqw]">
+          POV: you finally bought the thing you hope you never need
+        </Caption>
+        <Caption className="mt-auto text-[4.4cqw]">
+          back blows first. this is the backup.
+        </Caption>
+        <div className="mt-[4cqw] flex w-full items-center justify-between">
+          <LogoChip />
+          <span className="rounded-full bg-highlight px-[3cqw] py-[1.4cqw] text-[3.4cqw] font-bold text-black">
+            Buy 2, get 1 free
+          </span>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+function ChecklistAd({ ad }: { ad: ImageAd }) {
+  const done = ["Smoke alarm", "Fire extinguisher", "First-aid kit"];
+  return (
+    <Frame format={ad.format} theme={ad.theme} bg={ad.bg}>
+      <div className="absolute inset-y-0 left-0 flex w-[54%] flex-col p-[6cqw]">
+        <p className="text-[2.8cqw] font-bold uppercase tracking-[0.14em] text-brand">
+          Home safety
+        </p>
+        <h2 className="mt-[1.6cqw] font-display text-[7.6cqw] font-semibold leading-[1.04]">
+          The checklist
+        </h2>
+        <ul className="mt-[4cqw] grid gap-[2cqw]">
+          {done.map((item) => (
+            <li
+              key={item}
+              className="flex items-center gap-[2cqw] rounded-[2cqw] bg-white/90 px-[2.4cqw] py-[1.8cqw] text-[3.3cqw] font-semibold shadow-sm"
+            >
+              <span className="grid size-[4.6cqw] shrink-0 place-items-center rounded-[1cqw] bg-success text-[3cqw] text-white">
+                ✓
+              </span>
+              {item}
+            </li>
+          ))}
+          <li className="rounded-[2cqw] bg-white px-[2.4cqw] py-[1.8cqw] shadow-md ring-[0.6cqw] ring-brand">
+            <span className="flex items-center gap-[2cqw] text-[3.3cqw] font-bold">
+              <span className="size-[4.6cqw] shrink-0 rounded-[1cqw] border-[0.6cqw] border-brand" />
+              Choking rescue backup
+            </span>
+            <span className="mt-[0.8cqw] block pl-[6.6cqw] text-[2.8cqw] font-semibold text-brand">
+              → RescUAid+
+            </span>
+          </li>
+        </ul>
+        <div className="mt-auto grid justify-items-start gap-[2.4cqw]">
+          <LogoChip />
+          <CtaPill>Complete the kit</CtaPill>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+function InsideAd({ ad }: { ad: ImageAd }) {
+  const items = ["Suction device", "Adult mask", "Child mask (12 mo+)"];
+  return (
+    <Frame format={ad.format} theme={ad.theme} bg={ad.bg}>
+      <div className="absolute inset-0 flex flex-col p-[6cqw]">
+        <div className="flex items-start justify-between gap-[4cqw]">
+          <div>
+            <p className="text-[2.6cqw] font-bold uppercase tracking-[0.16em] text-brand">
+              What's in the kit
+            </p>
+            <h2 className="mt-[1.4cqw] font-display text-[8cqw] font-semibold leading-[1.05]">
+              Everything in one kit.
+            </h2>
+          </div>
+          <LogoChip />
+        </div>
+        <ol className="mt-auto flex flex-wrap justify-center gap-[1.6cqw]">
+          {items.map((item, i) => (
+            <li
+              key={item}
+              className="flex items-center gap-[1.4cqw] rounded-full bg-white py-[0.9cqw] pl-[0.9cqw] pr-[2.6cqw] text-[3cqw] font-semibold shadow-sm"
+            >
+              <span className="grid size-[4.6cqw] place-items-center rounded-full bg-accent text-[2.6cqw] font-bold text-accent-ink">
+                {i + 1}
+              </span>
+              {item}
+            </li>
+          ))}
+        </ol>
+        <p className="mt-[2.4cqw] text-center text-[2.4cqw] text-muted">
+          No batteries · No expiry unless used
+        </p>
+      </div>
+    </Frame>
+  );
+}
+
+function BackupStoryAd({ ad }: { ad: ImageAd }) {
+  return (
+    <Frame format={ad.format} theme={ad.theme} bg={ad.bg}>
+      {/* Copy sits between the Stories/Reels UI zones (top 14%, bottom 35%). */}
+      <div className="absolute inset-x-0 top-0 h-[62%] bg-gradient-to-b from-surface-2 via-surface-2/90 to-transparent" />
+      <div className="absolute inset-x-0 top-[15%] flex flex-col items-start px-[8cqw]">
+        <LogoChip />
+        <p className="mt-[5cqw] text-[3cqw] font-bold uppercase tracking-[0.16em] text-brand">
+          Choking rescue device
+        </p>
+        <h2 className="mt-[2.4cqw] font-display text-[10.4cqw] font-semibold leading-[1.04] text-balance">
+          The backup plan when back blows aren't enough.
+        </h2>
+        <p className="mt-[3cqw] text-[4.4cqw] font-semibold text-muted">
+          Place · Press · Pull
+        </p>
+        <CtaPill className="mt-[4cqw] !text-[4cqw]">Shop RescUAid+</CtaPill>
+      </div>
+    </Frame>
+  );
+}
+
+function EveryRoomStoryAd({ ad }: { ad: ImageAd }) {
+  return (
+    <Frame format={ad.format} theme={ad.theme} bg={ad.bg}>
+      <div className="absolute inset-x-0 top-0 h-[50%] bg-gradient-to-b from-bg via-bg/85 to-transparent" />
+      <div className="absolute inset-x-0 top-[15%] flex flex-col items-center px-[7cqw] text-center">
+        <span className="rounded-full bg-highlight px-[3.4cqw] py-[1.4cqw] text-[3.4cqw] font-bold text-accent">
+          Buy 2, get 1 free
+        </span>
+        <h2 className="mt-[4cqw] font-display text-[11cqw] font-semibold leading-[1.02] text-balance">
+          Ready in every room they eat in.
+        </h2>
+        <p className="mt-[3cqw] text-[4.2cqw] text-muted">
+          Kitchen · Car · Grandma's house
+        </p>
+        <div className="mt-[4cqw] flex items-center gap-[3cqw]">
+          <LogoChip />
+          <CtaPill className="!text-[3.8cqw]">One for every floor</CtaPill>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
 const LAYOUTS: Record<string, (p: { ad: ImageAd }) => ReactNode> = {
   "ad-backup": BackupAd,
   "ad-every-room": EveryRoomAd,
   "ad-offer": OfferAd,
   "ad-alone": AloneAd,
   "ad-gift": GiftAd,
+  "ad-pov": PovAd,
+  "ad-checklist": ChecklistAd,
+  "ad-inside": InsideAd,
+  "ad-backup-story": BackupStoryAd,
+  "ad-every-room-story": EveryRoomStoryAd,
 };
 
 export function ImageCreative({ ad }: { ad: ImageAd }) {

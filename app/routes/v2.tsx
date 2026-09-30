@@ -26,6 +26,7 @@ import {
   TrustBar,
 } from "~/components/pdp/content";
 import { RiskGroups, RoomMap, Timeline } from "~/components/pdp/story";
+import { AsSeenOn, ClaimBadges, ClaimRating } from "~/components/pdp/claims";
 import { faqs, money, offers, perKit, policy, product } from "~/data/product";
 import { img, imgs } from "~/lib/images";
 import { useOffer } from "~/lib/use-offer";
@@ -80,6 +81,7 @@ export default function V2() {
             <h1 className="mt-5 font-display text-[2.6rem] font-semibold leading-[1.05] text-balance sm:text-6xl">
               Ready in every room they eat in.
             </h1>
+            <ClaimRating className="mt-4" />
             <p className="mt-5 text-lg text-muted text-pretty">
               Choking can happen at any age, anywhere there's food.{" "}
               {product.name} is the backup to back blows and abdominal thrusts,
@@ -116,6 +118,7 @@ export default function V2() {
           ]}
         />
       </div>
+      <AsSeenOn />
 
       <Section
         eyebrow="Why minutes matter"
@@ -186,6 +189,7 @@ export default function V2() {
                 <CtaButton state={state} />
               </div>
               <BuyMeta state={state} />
+              <ClaimBadges className="mt-4" />
             </div>
           </div>
         </div>

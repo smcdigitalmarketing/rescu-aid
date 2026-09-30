@@ -108,6 +108,23 @@ export default function Home() {
         ))}
       </ul>
 
+      <a
+        href="/ads"
+        className="group mt-4 flex items-center justify-between rounded-xl border border-[#e2e7ee] bg-white p-5 transition hover:border-[#13306b] hover:shadow-md"
+      >
+        <span>
+          <span className="block text-lg font-bold">Ad creatives</span>
+          <span className="text-[#536175]">
+            5 image ads, 2 video ads and their Meta/TikTok copy, each linked to
+            a variant
+          </span>
+        </span>
+        <ArrowRight
+          className="size-5 shrink-0 transition group-hover:translate-x-1"
+          aria-hidden="true"
+        />
+      </a>
+
       <section className="mt-10 rounded-xl border border-[#f2c94c] bg-[#fffbeb] p-5 text-sm">
         <h2 className="font-bold">
           Claims switched off until substantiated ({pending.length})

@@ -42,3 +42,6 @@ Thumbs.db
 
 # Local preview config
 .claude/launch.json
+
+# Veo clips and caption layers (rebuildable; finals live in app/assets/ads)
+assets/video/

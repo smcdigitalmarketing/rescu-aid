@@ -1,0 +1,15 @@
+{
+  "id": "vidB2",
+  "model": "gemini-3-pro-image",
+  "aspect": "9:16",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Vertical cinematic still frame: a woman in her seventies cooking alone in her bright kitchen, stirring a pot on the stove in warm morning light. the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) rests on the counter beside the stove, clearly visible. Calm, content, dignified. Nobody is choking or distressed. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 464,
+    "output": 1306
+  },
+  "costUsd": 0.157648,
+  "generatedAt": "2026-09-30T04:18:23.531Z"
+}

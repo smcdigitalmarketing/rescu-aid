@@ -116,8 +116,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body:has([data-theme="v2"]) {
+body:has(> [data-theme="v2"]) {
   background: #fbf7f1;
+}
+
+/* Ad export renders: transparent so video overlays keep their alpha. */
+body:has([data-ad-render]) {
+  background: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {

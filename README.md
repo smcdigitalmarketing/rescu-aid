@@ -39,6 +39,17 @@ Every prompt uses `assets/reference/device.jpg` as its reference: a clean photo 
 
 Each generated image gets a `.json` file next to it holding the prompt, model and cost.
 
+## Ad creatives (`/ads`)
+
+5 image ads and 2 video ads for Meta and TikTok, defined in `app/data/ads.ts` with their copy, landing variant and UTMs. The photography is generated. All text on the ads is HTML (`app/components/ads/creatives.tsx`), so it stays sharp and editable and never has AI typos.
+
+1. `npm run images`: ad backgrounds and 9:16 video first frames.
+2. `npm run videos -- --tier draft`: Veo 3.1 Fast clips, about $0.96 per 8s clip. Use `--tier final` for Veo 3.1 at about $3.20 per clip, and `--dry-run` to see the cost first. Clips are saved in `assets/video/`, which is git-ignored.
+3. `npm run dev`, then `npm run ads:export -- --base http://localhost:5173`: saves the final PNGs to `app/assets/ads/`, plus the video caption layers and end cards.
+4. `npm run videos:build`: uses ffmpeg to join the clips, captions and end card into `app/assets/ads/<video>.mp4`. It uses a final take when one exists, otherwise the draft.
+
+`/ads` shows every creative, and has copy buttons, download links and the cost table.
+
 ## Before launch
 
 - Match the refund and shipping policies to the page copy. The live refund policy says 30 days for unused items, while the pages say 90 days. The live shipping policy says shipping is calculated at checkout, while the pages say free over $60.

@@ -1,0 +1,16 @@
+{
+  "id": "vidA1",
+  "model": "gemini-3-pro-image",
+  "aspect": "9:16",
+  "refs": [
+    "device",
+    "in-use-closeup"
+  ],
+  "prompt": "Vertical still frame from a calm first-aid training video: a female instructor in her forties wearing a navy polo shirt stands beside a seated, relaxed male adult volunteer in his thirties in a bright, modern training room. She holds the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) at chest height about 40 cm in front of the volunteer, mask pointing toward him; the mask is not yet touching his face. Both are calm. Soft daylight, clean neutral palette, shallow depth of field. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 761,
+    "output": 1370
+  },
+  "costUsd": 0.165922,
+  "generatedAt": "2026-09-30T04:19:52.482Z"
+}

@@ -11,7 +11,7 @@
  * Output: app/assets/generated/<id>.webp plus <id>.json (prompt, model, cost),
  * so every image can be reproduced. Delete a .webp to fall back to the placeholder.
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
@@ -22,20 +22,18 @@ import {
 } from "@google/genai";
 import sharp from "sharp";
 import { imageSlots, type ImageSlot } from "../app/data/image-slots.ts";
+import { IMAGE_PRICES } from "../app/data/pricing.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = join(root, "app/assets/generated");
 const refDir = join(root, "assets/reference");
 
-/** USD per 1M tokens, paid tier (ai.google.dev/gemini-api/docs/pricing, 2026-09-30). */
-const PRICES: Record<
-  string,
-  { input: number; output: number; perImage: number }
-> = {
-  "gemini-3-pro-image": { input: 2, output: 120, perImage: 0.134 },
-  "gemini-3.1-flash-image": { input: 0.5, output: 60, perImage: 0.101 },
-  "gemini-3.1-flash-lite-image": { input: 0.25, output: 30, perImage: 0.034 },
-};
+/** `device` → assets/reference/device.jpg; `@vidA1` → a slot generated earlier. */
+const refPath = (name: string) =>
+  name.startsWith("@")
+    ? join(outDir, `${name.slice(1)}.webp`)
+    : join(refDir, `${name}.jpg`);
+
 
 const REFERENCE_PROMPT =
   "Edit this photo. Keep only the single red handheld suction device with its attached clear face mask, exactly as it is: same shape, colour, knurling, white arrow label and mask. Remove everything else: the pouch, the leaflets and cards, and the loose masks. Place the device on a plain pure-white background, lying diagonally, fully in frame with even margins and a soft natural shadow. Do not add anything.";
@@ -50,7 +48,7 @@ const { values: args } = parseArgs({
   },
 });
 const model = args.model!;
-const price = PRICES[model];
+const price = IMAGE_PRICES[model];
 
 const slots = (Object.values(imageSlots) as ImageSlot[]).filter(
   (s) =>
@@ -78,8 +76,10 @@ if (!args.reference) {
     process.exit(0);
   }
   if (!todo.length) process.exit(0);
+  // An "@slot" reference may be generated earlier in this same run.
+  const pending = new Set(todo.map((s) => `@${s.id}`));
   const missing = [...new Set(todo.flatMap((s) => s.refs ?? []))].filter(
-    (r) => !existsSync(join(refDir, `${r}.jpg`)),
+    (r) => !pending.has(r) && !existsSync(refPath(r)),
   );
   if (missing.length) {
     console.error(
@@ -98,8 +98,10 @@ if (!apiKey) {
 }
 const ai = new GoogleGenAI({ apiKey });
 
-const refData = (name: string) =>
-  readFileSync(join(refDir, `${name}.jpg`)).toString("base64");
+const refData = async (name: string) =>
+  (await sharp(refPath(name)).jpeg({ quality: 90 }).toBuffer()).toString(
+    "base64",
+  );
 
 function costOf(res: GenerateContentResponse) {
   const u = res.usageMetadata;
@@ -118,9 +120,11 @@ async function generate(prompt: string, refs: string[], aspect: string) {
       {
         role: "user",
         parts: [
-          ...refs.map((r) => ({
-            inlineData: { mimeType: "image/jpeg", data: refData(r) },
-          })),
+          ...(await Promise.all(
+            refs.map(async (r) => ({
+              inlineData: { mimeType: "image/jpeg", data: await refData(r) },
+            })),
+          )),
           { text: prompt },
         ],
       },

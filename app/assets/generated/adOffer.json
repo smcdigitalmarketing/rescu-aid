@@ -1,0 +1,15 @@
+{
+  "id": "adOffer",
+  "model": "gemini-3-pro-image",
+  "aspect": "1:1",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Bold direct-response product photograph: exactly three identical units of the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end), lying side by side at a slight diagonal in the lower half of a square frame on a saturated sunny-yellow (#FFE14D) seamless background with crisp soft shadows. The upper half of the frame is empty yellow, reserved for offer text. Nothing touches the frame edges. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 481,
+    "output": 1319
+  },
+  "costUsd": 0.159242,
+  "generatedAt": "2026-09-30T04:16:01.492Z"
+}

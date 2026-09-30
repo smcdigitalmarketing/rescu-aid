@@ -1,0 +1,15 @@
+{
+  "id": "adAlone",
+  "model": "gemini-3-pro-image",
+  "aspect": "4:5",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Calm, dignified lifestyle photograph for a vertical social ad: a woman in her seventies at home alone, relaxed and content, pouring tea in her bright, tidy kitchen in soft morning light. the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) rests on the counter within easy reach, clearly visible in the lower half. The top third of the frame is uncluttered wall and window, reserved for headline text. Nobody is choking or distressed. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 490,
+    "output": 1320
+  },
+  "costUsd": 0.15938,
+  "generatedAt": "2026-09-30T04:16:26.477Z"
+}

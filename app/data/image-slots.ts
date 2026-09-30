@@ -15,7 +15,11 @@ export type Placeholder =
  * from `kit` by `npm run images -- --reference`; every slot uses it so the
  * product looks the same everywhere without copying the kit photo's layout.
  */
-export type Reference = "device" | "in-use-closeup";
+export type Reference =
+  | "device"
+  | "in-use-closeup"
+  /** Another generated slot, e.g. "@vidA1", to keep people consistent across shots. */
+  | `@${string}`;
 
 export type ImageSlot = {
   id: string;
@@ -23,7 +27,7 @@ export type ImageSlot = {
   placeholder?: Placeholder;
   /** Omit to keep the slot placeholder-only (never generated). */
   prompt?: string;
-  aspect?: "1:1" | "4:5" | "3:4" | "4:3" | "3:2" | "16:9";
+  aspect?: "1:1" | "4:5" | "3:4" | "4:3" | "3:2" | "16:9" | "9:16";
   refs?: Reference[];
 };
 
@@ -159,6 +163,73 @@ export const imageSlots = {
     placeholder: "kit",
     prompt: `Product photograph of exactly three identical units of ${DEVICE}, standing upright on their masks side by side in a neat row on a clean white surface, soft studio shadows, bright and crisp. ${RULES}`,
     aspect: "4:3",
+    refs: ["device"],
+  },
+
+  // ── Ad creative backgrounds (text is overlaid in HTML, never generated) ──
+  adBackup: {
+    id: "adBackup",
+    alt: "RescUAid+ standing upright on a light grey studio background",
+    prompt: `Premium medical-product studio photograph for a social ad: ${DEVICE}, standing upright on its attached mask, placed in the lower-right third of a vertical frame on a seamless very light cool-grey background with a soft reflection. The upper-left half of the frame is plain, empty background. Calm, clinical, trustworthy. ${RULES}`,
+    aspect: "4:5",
+    refs: ["device"],
+  },
+  adEveryRoom: {
+    id: "adEveryRoom",
+    alt: "Family dinner in a warm kitchen with RescUAid+ on the counter",
+    prompt: `Warm, candid lifestyle photograph for a vertical social ad: a family (grandparents, parents and a clearly older child of about four years old on a booster seat, no babies or infants) sharing dinner in a cozy kitchen at golden hour, slightly soft focus. In the lower third, in sharp focus on the counter, sits ${DEVICE}. The top third of the frame is a plain, softly lit cream wall with nothing on it: no signs, posters, frames or lettering. Cream, terracotta and warm wood tones. Nobody is choking or distressed. ${RULES}`,
+    aspect: "4:5",
+    refs: ["device"],
+  },
+  adOffer: {
+    id: "adOffer",
+    alt: "Three RescUAid+ devices on a bright yellow background",
+    prompt: `Bold direct-response product photograph: exactly three identical units of ${DEVICE}, lying side by side at a slight diagonal in the lower half of a square frame on a saturated sunny-yellow (#FFE14D) seamless background with crisp soft shadows. The upper half of the frame is plain empty yellow. Nothing touches the frame edges. ${RULES}`,
+    aspect: "1:1",
+    refs: ["device"],
+  },
+  adAlone: {
+    id: "adAlone",
+    alt: "Woman in her seventies making tea in her bright kitchen, RescUAid+ on the counter",
+    prompt: `Calm, dignified lifestyle photograph for a vertical social ad: a woman in her seventies at home alone, relaxed and content, pouring tea in her bright, tidy kitchen in soft morning light. ${DEVICE} rests on the counter within easy reach, clearly visible in the lower half. The top third of the frame is plain, uncluttered wall and window. Nobody is choking or distressed. ${RULES}`,
+    aspect: "4:5",
+    refs: ["device"],
+  },
+  adGift: {
+    id: "adGift",
+    alt: "RescUAid+ tied with a red ribbon on a warm kitchen counter",
+    prompt: `Festive, warm product photograph for a vertical Stories ad: ${DEVICE} lying on a wooden kitchen counter with a red satin ribbon tied in a neat bow around its handle, a small sprig of greenery beside it, soft bokeh of warm string lights in the background. The product sits in the lower half; the top half is soft, dark-warm bokeh with no detail. ${RULES}`,
+    aspect: "9:16",
+    refs: ["device"],
+  },
+
+  // ── Video first frames (Veo image-to-video; adults only, per Veo's rules) ──
+  vidA1: {
+    id: "vidA1",
+    alt: "Instructor about to place the RescUAid+ mask on a seated volunteer",
+    prompt: `Vertical still frame from a calm first-aid training video: a female instructor in her forties wearing a navy polo shirt stands beside a seated, relaxed male adult volunteer in his thirties in a bright, modern training room. She holds ${DEVICE} at chest height about 40 cm in front of the volunteer, mask pointing toward him; the mask is not yet touching his face. Both are calm. Soft daylight, clean neutral palette, shallow depth of field. ${RULES}`,
+    aspect: "9:16",
+    refs: ["device", "in-use-closeup"],
+  },
+  vidA2: {
+    id: "vidA2",
+    alt: "Close-up: RescUAid+ mask sealed over the volunteer's mouth and nose",
+    prompt: `Vertical extreme close-up from the same training session as the second reference image (same instructor, same volunteer, same room and lighting), framed tightly on the instructor's hand, the device and the lower half of the volunteer's face: the clear mask of ${DEVICE} is sealed over his mouth and nose, her hand firmly gripping the handle. Much closer framing than the reference. ${RULES}`,
+    aspect: "9:16",
+    refs: ["device", "@vidA1"],
+  },
+  vidB1: {
+    id: "vidB1",
+    alt: "Adults sharing dinner in a warm kitchen, RescUAid+ on the counter",
+    prompt: `Vertical cinematic still frame: four adults (a grandmother and grandfather in their seventies, their adult son and daughter-in-law) laughing over dinner at a kitchen table at golden hour, softly out of focus in the background. In the foreground on the kitchen counter, in sharp focus, sits ${DEVICE}. Warm cream, terracotta and wood tones. No children. Nobody is choking or distressed. ${RULES}`,
+    aspect: "9:16",
+    refs: ["device"],
+  },
+  vidB2: {
+    id: "vidB2",
+    alt: "Woman in her seventies cooking, RescUAid+ on the counter by the stove",
+    prompt: `Vertical cinematic still frame: a woman in her seventies cooking alone in her bright kitchen, stirring a pot on the stove in warm morning light. ${DEVICE} rests on the counter beside the stove, clearly visible. Calm, content, dignified. Nobody is choking or distressed. ${RULES}`,
+    aspect: "9:16",
     refs: ["device"],
   },
 } satisfies Record<string, ImageSlot>;

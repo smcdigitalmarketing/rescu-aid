@@ -1,0 +1,16 @@
+{
+  "id": "vidA2",
+  "model": "gemini-3-pro-image",
+  "aspect": "9:16",
+  "refs": [
+    "device",
+    "@vidA1"
+  ],
+  "prompt": "Vertical extreme close-up from the same training session as the second reference image (same instructor, same volunteer, same room and lighting), framed tightly on the instructor's hand, the device and the lower half of the volunteer's face: the clear mask of the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) is sealed over his mouth and nose, her hand firmly gripping the handle. Much closer framing than the reference. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 746,
+    "output": 1343
+  },
+  "costUsd": 0.162652,
+  "generatedAt": "2026-09-30T04:20:15.628Z"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "adGift",
+  "model": "gemini-3-pro-image",
+  "aspect": "9:16",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Festive, warm product photograph for a vertical Stories ad: the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow that always points away from the mask toward the capped handle end, and a clear soft silicone face mask attached to one end) lying on a wooden kitchen counter with a red satin ribbon tied in a neat bow around its handle, a small sprig of greenery beside it, soft bokeh of warm string lights in the background. The product sits in the lower half; the top half is soft, dark-warm bokeh with no detail, reserved for headline text. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 491,
+    "output": 1321
+  },
+  "costUsd": 0.159502,
+  "generatedAt": "2026-09-30T04:16:49.733Z"
+}

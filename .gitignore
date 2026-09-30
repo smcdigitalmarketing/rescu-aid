@@ -36,3 +36,9 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# React Router
+/.react-router/
+
+# Local preview config
+.claude/launch.json

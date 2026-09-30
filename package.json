@@ -1,0 +1,36 @@
+{
+  "name": "rescu-aid",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc",
+    "images": "node --env-file-if-exists=.env scripts/generate-images.ts"
+  },
+  "dependencies": {
+    "@react-router/node": "^7.18.4",
+    "@react-router/serve": "^7.18.4",
+    "isbot": "^5.1.36",
+    "lucide-react": "^1.49.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router": "^7.18.4"
+  },
+  "devDependencies": {
+    "@google/genai": "^2.24.0",
+    "@react-router/dev": "^7.18.4",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/node": "^22",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.3"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

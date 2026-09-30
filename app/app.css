@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/*
+ * Each PDP sets data-theme on its wrapper. The utilities below read the
+ * scoped custom properties, so shared components restyle per variant.
+ */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-ink: var(--brand-ink);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-highlight: var(--highlight);
+  --color-success: var(--success);
+  --color-navy: #13306b;
+  --color-red: #d7262e;
+
+  --font-sans: var(--f-body);
+  --font-display: var(--f-display);
+
+  --radius-card: var(--r-card);
+  --radius-btn: var(--r-btn);
+}
+
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f5f7fa;
+  --ink: #0f1b2d;
+  --muted: #536175;
+  --line: #e2e7ee;
+  --brand: #d7262e;
+  --brand-strong: #b51d24;
+  --brand-ink: #ffffff;
+  --accent: #13306b;
+  --accent-ink: #ffffff;
+  --highlight: #fff4c2;
+  --success: #1f7a4d;
+  --f-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --f-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --r-card: 12px;
+  --r-btn: 10px;
+}
+
+/* V1 — Calm Confidence: clinical white, navy ink, serif headlines */
+[data-theme="v1"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f6f9;
+  --ink: #0f1b2d;
+  --muted: #4f5d72;
+  --line: #e1e6ed;
+  --brand: #c8102e;
+  --brand-strong: #a50d26;
+  --accent: #13306b;
+  --highlight: #eef3fb;
+  --f-display: "Source Serif 4", Georgia, serif;
+  --f-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --r-card: 10px;
+  --r-btn: 8px;
+}
+
+/* V2 — Every Room, Every Age: warm cream, soft serif, rounded */
+[data-theme="v2"] {
+  --bg: #fbf7f1;
+  --surface: #ffffff;
+  --surface-2: #f4ebdf;
+  --ink: #2a1d17;
+  --muted: #6d5a4e;
+  --line: #eadfd1;
+  --brand: #c62828;
+  --brand-strong: #a41f1f;
+  --accent: #7a3b2e;
+  --highlight: #fde9c8;
+  --success: #2e7d4f;
+  --f-display: "Fraunces", Georgia, serif;
+  --f-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --r-card: 20px;
+  --r-btn: 999px;
+}
+
+/* V3 — Offer-First: high-contrast red/black, condensed headlines */
+[data-theme="v3"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f6f6f6;
+  --ink: #111111;
+  --muted: #545454;
+  --line: #e4e4e4;
+  --brand: #e11d2e;
+  --brand-strong: #bf1524;
+  --accent: #111111;
+  --highlight: #ffe14d;
+  --success: #138a4b;
+  --f-display: "Oswald", "Arial Narrow", sans-serif;
+  --f-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --r-card: 14px;
+  --r-btn: 12px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #0f1b2d;
+  -webkit-font-smoothing: antialiased;
+}
+
+body:has([data-theme="v2"]) {
+  background: #fbf7f1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@keyframes step-cycle {
+  0%,
+  30% {
+    opacity: 1;
+  }
+  33%,
+  100% {
+    opacity: 0.6;
+  }
+}

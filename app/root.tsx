@@ -12,6 +12,8 @@ import "./app.css";
 
 // Font stylesheets are loaded per route so each PDP only pays for its own type.
 export const links: Route.LinksFunction = () => [
+  { rel: "icon", type: "image/png", href: "/favicon.png" },
+  { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",

@@ -1,0 +1,15 @@
+{
+  "id": "v1Caregiver",
+  "model": "gemini-3-pro-image",
+  "aspect": "4:3",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Calm, warm lifestyle photograph: a woman in her forties sharing a meal with her father in his late seventies at a bright, tidy kitchen table, both relaxed and smiling. the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow, and a clear soft silicone face mask attached to one end) rests on the counter behind them, visible but not the focus. Soft morning window light, neutral palette, candid. Nobody is choking or distressed. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 466,
+    "output": 1303
+  },
+  "costUsd": 0.157292,
+  "generatedAt": "2026-09-30T03:54:39.741Z"
+}

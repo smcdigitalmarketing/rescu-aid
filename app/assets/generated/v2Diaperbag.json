@@ -1,0 +1,15 @@
+{
+  "id": "v2Diaperbag",
+  "model": "gemini-3-pro-image",
+  "aspect": "4:3",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Top-down lifestyle product photograph of an open canvas diaper bag on a cream bedspread, neatly packed with a snack container, a sippy cup, a pack of wipes and the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow, and a clear soft silicone face mask attached to one end) tucked in the side pocket. Soft daylight, warm tones. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 448,
+    "output": 1277
+  },
+  "costUsd": 0.154136,
+  "generatedAt": "2026-09-30T03:56:42.728Z"
+}

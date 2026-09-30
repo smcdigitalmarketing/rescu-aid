@@ -10,7 +10,12 @@
 export type Placeholder =
   "kit" | "in-use-closeup" | "in-use-kitchen" | "device-masks";
 
-export type Reference = "kit" | "in-use-closeup" | "in-use-kitchen";
+/**
+ * Files in assets/reference/. `device` is a clean single-device cutout made
+ * from `kit` by `npm run images -- --reference`; every slot uses it so the
+ * product looks the same everywhere without copying the kit photo's layout.
+ */
+export type Reference = "device" | "in-use-closeup";
 
 export type ImageSlot = {
   id: string;
@@ -19,25 +24,27 @@ export type ImageSlot = {
   /** Omit to keep the slot placeholder-only (never generated). */
   prompt?: string;
   aspect?: "1:1" | "4:5" | "3:4" | "4:3" | "3:2" | "16:9";
-  size?: "1K" | "2K";
   refs?: Reference[];
 };
 
 const DEVICE =
-  "the RescUAid+ anti-choking device exactly as it appears in the reference photos: a matte red cylindrical handheld suction device about 20 cm long with a knurled grip, a white square label printed with a red arrow, and a clear soft silicone face mask on one end";
+  "the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow, and a clear soft silicone face mask attached to one end)";
 
-const RULES =
-  "Photorealistic commercial photography. Keep the device's shape, colour, label and mask identical to the reference photos. No added text, captions, logos, badges, seals, certification marks or watermarks. Natural skin tones, realistic hands.";
+const RULES = [
+  "Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition.",
+  "Show exactly one device unless the prompt asks for more.",
+  "No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image.",
+  "Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+].join(" ");
 
 export const imageSlots = {
   kit: {
     id: "kit",
     alt: "RescUAid+ kit: red suction device with adult and child masks",
     placeholder: "kit",
-    prompt: `Top-down flat lay on a soft warm-white surface of ${DEVICE}, beside a second, larger adult mask and a smaller child mask, and a folded instruction card. Even, soft studio light, gentle shadows, generous negative space around the items. ${RULES}`,
+    prompt: `Top-down flat lay on a soft warm-white surface: ${DEVICE} lying diagonally, with one spare larger adult mask and one smaller child mask neatly placed beside it. Even, soft studio light, gentle shadows, generous negative space. ${RULES}`,
     aspect: "1:1",
-    size: "2K",
-    refs: ["kit"],
+    refs: ["device"],
   },
   demo: {
     id: "demo",
@@ -57,116 +64,102 @@ export const imageSlots = {
   stepPlace: {
     id: "stepPlace",
     alt: "Step 1: place the mask over the mouth and nose",
-    prompt: `Calm first-aid training demonstration. An adult instructor's hands gently place the clear mask of ${DEVICE} over the mouth and nose of a seated adult volunteer, who is calm and relaxed. Bright, clean training room, soft daylight, shallow depth of field, focus on the mask seal. ${RULES}`,
+    prompt: `Calm first-aid training demonstration. An instructor's hands gently place the clear mask of ${DEVICE} over the mouth and nose of a seated adult volunteer, who is calm and relaxed. The second reference image shows how the device is held; do not copy the people in it. Bright, clean training room, soft daylight, shallow depth of field, focus on the mask seal. ${RULES}`,
     aspect: "1:1",
-    size: "1K",
-    refs: ["in-use-closeup", "kit"],
+    refs: ["device", "in-use-closeup"],
   },
   stepPress: {
     id: "stepPress",
     alt: "Step 2: press the handle down",
-    prompt: `Close-up of an adult hand pressing down on the handle of ${DEVICE}, the mask sealed over a calm seated adult volunteer's mouth and nose in a first-aid training setting. Slight motion emphasis on the downward push. Clean, bright, soft daylight. ${RULES}`,
+    prompt: `Close-up of an adult hand pressing the handle of ${DEVICE} toward the face, the mask sealed over a calm seated adult volunteer's mouth and nose, first-aid training setting. The second reference image shows how the device is held; do not copy the people in it. Clean, bright, soft daylight. ${RULES}`,
     aspect: "1:1",
-    size: "1K",
-    refs: ["in-use-closeup", "kit"],
+    refs: ["device", "in-use-closeup"],
   },
   stepPull: {
     id: "stepPull",
     alt: "Step 3: pull the handle back",
-    prompt: `Close-up of an adult hand pulling the handle of ${DEVICE} back and away from the face, the mask still sealed over a calm seated adult volunteer's mouth and nose, first-aid training setting. Clean, bright, soft daylight. ${RULES}`,
+    prompt: `Close-up of an adult hand pulling the handle of ${DEVICE} back and away from the face, the mask still sealed over a calm seated adult volunteer's mouth and nose, first-aid training setting. The second reference image shows how the device is held; do not copy the people in it. Clean, bright, soft daylight. ${RULES}`,
     aspect: "1:1",
-    size: "1K",
-    refs: ["in-use-closeup", "kit"],
+    refs: ["device", "in-use-closeup"],
   },
 
   v1Hero: {
     id: "v1Hero",
-    alt: "RescUAid+ anti-choking device standing upright with its mask",
+    alt: "RescUAid+ anti-choking device standing upright on its mask",
     placeholder: "kit",
-    prompt: `Premium medical-product studio photograph of ${DEVICE}, standing upright on its mask on a seamless very light cool-grey background with a subtle gradient and a soft reflection. Crisp, clinical, calm and trustworthy. Spare adult and child masks rest beside it. Centered composition with generous negative space. ${RULES}`,
+    prompt: `Premium medical-product studio photograph: ${DEVICE}, standing upright on its attached mask, centred on a seamless very light cool-grey background with a subtle gradient and a soft reflection below. One small spare child mask rests beside it. Crisp, clinical, calm and trustworthy. Generous negative space. ${RULES}`,
     aspect: "1:1",
-    size: "2K",
-    refs: ["kit"],
+    refs: ["device"],
   },
   v1Valve: {
     id: "v1Valve",
     alt: "Close-up of the clear mask and one-way valve",
     placeholder: "device-masks",
-    prompt: `Macro product photograph of the clear silicone mask and connector of ${DEVICE}, showing the transparent chamber and the one-way valve. Light cool-grey background, precise studio lighting, shallow depth of field, clinical and engineered feel. ${RULES}`,
+    prompt: `Macro product photograph of the clear silicone mask and connector end of ${DEVICE}, showing the transparent chamber. Light cool-grey background, precise studio lighting, shallow depth of field, clinical and engineered feel. ${RULES}`,
     aspect: "4:3",
-    size: "1K",
-    refs: ["kit"],
+    refs: ["device"],
   },
   v1Caregiver: {
     id: "v1Caregiver",
     alt: "Adult daughter and her elderly father at a kitchen table, RescUAid+ within reach",
     placeholder: "in-use-kitchen",
-    prompt: `Warm but calm lifestyle photograph: a woman in her forties sharing a meal with her father in his late seventies at a bright, tidy kitchen table, both relaxed and smiling. ${DEVICE} rests on the counter in the background, visible but not the focus. Soft morning window light, neutral palette, candid. Nobody is choking or distressed. ${RULES}`,
+    prompt: `Calm, warm lifestyle photograph: a woman in her forties sharing a meal with her father in his late seventies at a bright, tidy kitchen table, both relaxed and smiling. ${DEVICE} rests on the counter behind them, visible but not the focus. Soft morning window light, neutral palette, candid. Nobody is choking or distressed. ${RULES}`,
     aspect: "4:3",
-    size: "2K",
-    refs: ["kit"],
+    refs: ["device"],
   },
 
   v2Hero: {
     id: "v2Hero",
     alt: "Family dinner in a warm kitchen with RescUAid+ on the counter",
     placeholder: "in-use-kitchen",
-    prompt: `Warm, candid lifestyle photograph of a multi-generational family (grandmother, two parents, a toddler around two years old in a high chair and a school-age child) sharing dinner in a cozy home kitchen at golden hour. In the foreground on the kitchen counter, in sharp focus, sits ${DEVICE} beside a fruit bowl. The family is blurred slightly behind, happy and relaxed. Cream, terracotta and warm wood tones. Nobody is choking or distressed. ${RULES}`,
+    prompt: `Warm, candid lifestyle photograph of a multi-generational family (grandmother, two parents, a toddler around two years old in a high chair and a school-age child) sharing dinner in a cozy home kitchen at golden hour. In the foreground on the kitchen counter, in sharp focus, sits ${DEVICE} beside a fruit bowl. The family is slightly blurred behind, happy and relaxed. Cream, terracotta and warm wood tones. Nobody is choking or distressed. ${RULES}`,
     aspect: "4:3",
-    size: "2K",
-    refs: ["kit"],
+    refs: ["device"],
   },
   v2Grandparent: {
     id: "v2Grandparent",
     alt: "Grandfather feeding his toddler grandson, RescUAid+ on the table",
-    
-    prompt: `Tender candid photograph of a grandfather feeding his two-year-old grandson small pieces of fruit at a wooden table. ${DEVICE} sits on the table within easy reach. Warm afternoon light, cream and wood tones. Both are happy and calm. ${RULES}`,
+    prompt: `Tender candid photograph of a grandfather feeding his two-year-old grandson small pieces of fruit at a wooden table. ${DEVICE} lies on the table within easy reach. Warm afternoon light, cream and wood tones. Both are happy and calm. ${RULES}`,
     aspect: "4:3",
-    size: "1K",
-    refs: ["kit"],
+    refs: ["device"],
   },
   v2Car: {
     id: "v2Car",
     alt: "RescUAid+ stored in a car's centre console",
     prompt: `Lifestyle product photograph of ${DEVICE} tucked neatly into the open centre-console storage of a modern family car, a child's car seat softly visible in the back. Warm natural light through the windows. ${RULES}`,
     aspect: "4:3",
-    size: "1K",
-    refs: ["kit"],
+    refs: ["device"],
   },
   v2Nightstand: {
     id: "v2Nightstand",
     alt: "RescUAid+ on a bedside table",
     prompt: `Lifestyle product photograph of ${DEVICE} standing on a bedside table next to reading glasses, a glass of water and a small lamp, in a calm senior's bedroom with warm evening light and cream linen. ${RULES}`,
     aspect: "4:3",
-    size: "1K",
-    refs: ["kit"],
+    refs: ["device"],
   },
   v2Diaperbag: {
     id: "v2Diaperbag",
     alt: "RescUAid+ packed in a diaper bag",
-    prompt: `Lifestyle product photograph, top-down, of an open canvas diaper bag on a cream bedspread, neatly packed with a snack container, a sippy cup, wipes, and ${DEVICE} tucked in the side pocket. Soft daylight, warm tones. ${RULES}`,
+    prompt: `Top-down lifestyle product photograph of an open canvas diaper bag on a cream bedspread, neatly packed with a snack container, a sippy cup, a pack of wipes and ${DEVICE} tucked in the side pocket. Soft daylight, warm tones. ${RULES}`,
     aspect: "4:3",
-    size: "1K",
-    refs: ["kit"],
+    refs: ["device"],
   },
 
   v3Hero: {
     id: "v3Hero",
     alt: "RescUAid+ anti-choking device on a bright yellow background",
     placeholder: "kit",
-    prompt: `Bold direct-response product photograph of ${DEVICE}, angled dynamically at 30 degrees, floating over a saturated sunny-yellow seamless background with a crisp soft shadow beneath. Spare adult and child masks beside it. High contrast, punchy, clean edges, centered with room around the product. ${RULES}`,
+    prompt: `Bold direct-response product photograph: ${DEVICE}, angled dynamically at about 30 degrees, floating over a saturated sunny-yellow (#FFE14D) seamless background with a crisp soft shadow beneath. High contrast, punchy, clean edges, centred with generous room around the product. ${RULES}`,
     aspect: "1:1",
-    size: "2K",
-    refs: ["kit"],
+    refs: ["device"],
   },
   v3Bundle: {
     id: "v3Bundle",
     alt: "Three RescUAid+ kits side by side",
     placeholder: "kit",
-    prompt: `Product photograph of three identical units of ${DEVICE} standing upright side by side in a neat row on a clean white surface, each with its mask, soft studio shadows, bright and crisp. ${RULES}`,
+    prompt: `Product photograph of exactly three identical units of ${DEVICE}, standing upright on their masks side by side in a neat row on a clean white surface, soft studio shadows, bright and crisp. ${RULES}`,
     aspect: "4:3",
-    size: "1K",
-    refs: ["kit"],
+    refs: ["device"],
   },
 } satisfies Record<string, ImageSlot>;
 

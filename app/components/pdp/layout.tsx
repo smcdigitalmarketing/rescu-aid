@@ -31,7 +31,7 @@ export function PageShell({
       </div>
       <header className="border-b border-line bg-surface">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-          <a href={STORE_URL} className="text-2xl">
+          <a href={STORE_URL} className="shrink-0">
             <Logo />
           </a>
           {nav && (
@@ -135,7 +135,7 @@ function Footer() {
     <footer className="border-t border-line bg-surface px-4 py-12 text-sm text-muted">
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <Logo className="text-xl" />
+          <Logo className="h-9" />
           <p className="mt-3 max-w-sm">{usageNotice.body[1]}</p>
         </div>
         <div>

@@ -29,13 +29,15 @@ npm run dev
 
 ## Images
 
-Pages use the current rescuaid.com product photos until generated images exist.
+All 14 image slots are generated with `gemini-3-pro-image`, at about $0.16 per image. A slot with no generated file falls back to one of the current rescuaid.com product photos.
 
-1. Copy `.env.example` to `.env` and set `GEMINI_API_KEY`.
-2. Run `npm run images`. Add `-- --only v2` to target one variant, `-- --force` to regenerate, or `-- --model gemini-3-pro-image` to switch model.
+1. Copy `.env.example` to `.env` and set `GEMINI_API_KEY`. This must be a paid-tier Gemini API key, because image models have no free tier.
+2. Run `npm run images`. Add `-- --only v2` to target one variant, `-- --force` to regenerate, `-- --dry-run` to see the cost first, or `-- --model gemini-3.1-flash-image` to use the cheaper model.
 3. Review every file in `app/assets/generated/`. Delete any you don't want and that slot falls back to its placeholder.
 
-Each generated image gets a `.json` file next to it holding the prompt and model used.
+Every prompt uses `assets/reference/device.jpg` as its reference: a clean photo of the device on its own. It was made from the store's kit photo with `npm run images -- --reference`, then the leftover pouch and leaflet were masked out by hand. Without it, the model copies the kit photo's layout and invents leaflet text.
+
+Each generated image gets a `.json` file next to it holding the prompt, model and cost.
 
 ## Before launch
 

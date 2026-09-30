@@ -1,0 +1,15 @@
+{
+  "id": "kit",
+  "model": "gemini-3-pro-image",
+  "aspect": "1:1",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Top-down flat lay on a soft warm-white surface: the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow, and a clear soft silicone face mask attached to one end) lying diagonally, with one spare larger adult mask and one smaller child mask neatly placed beside it. Even, soft studio light, gentle shadows, generous negative space. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 446,
+    "output": 1303
+  },
+  "costUsd": 0.157252,
+  "generatedAt": "2026-09-30T03:52:40.680Z"
+}

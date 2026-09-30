@@ -53,7 +53,7 @@ export default function Home() {
   const pending = Object.entries(claims).filter(([, c]) => !c.enabled);
   return (
     <main className="mx-auto max-w-4xl px-4 py-12 font-[Inter,sans-serif] text-[#0f1b2d]">
-      <Logo className="text-3xl" />
+      <Logo className="h-12" />
       <h1 className="mt-6 text-3xl font-bold">Product page variants</h1>
       <p className="mt-2 text-[#536175]">
         Internal review page. Each variant sends shoppers to the rescuaid.com

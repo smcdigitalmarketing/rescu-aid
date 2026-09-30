@@ -1,0 +1,16 @@
+{
+  "id": "stepPress",
+  "model": "gemini-3-pro-image",
+  "aspect": "1:1",
+  "refs": [
+    "device",
+    "in-use-closeup"
+  ],
+  "prompt": "Close-up of an adult hand pressing the handle of the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow, and a clear soft silicone face mask attached to one end) toward the face, the mask sealed over a calm seated adult volunteer's mouth and nose, first-aid training setting. The second reference image shows how the device is held; do not copy the people in it. Clean, bright, soft daylight. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 721,
+    "output": 1279
+  },
+  "costUsd": 0.154922,
+  "generatedAt": "2026-09-30T03:53:28.113Z"
+}

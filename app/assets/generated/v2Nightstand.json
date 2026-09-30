@@ -1,0 +1,15 @@
+{
+  "id": "v2Nightstand",
+  "model": "gemini-3-pro-image",
+  "aspect": "4:3",
+  "refs": [
+    "device"
+  ],
+  "prompt": "Lifestyle product photograph of the RescUAid+ anti-choking device from the first reference image (a matte red anodized-aluminium handheld cylinder with knurled grip panels, a white square label with a red arrow, and a clear soft silicone face mask attached to one end) standing on a bedside table next to reading glasses, a glass of water and a small lamp, in a calm senior's bedroom with warm evening light and cream linen. Use the reference image only to match the device's exact shape, colour, label and mask. Do not copy its background, angle or composition. Show exactly one device unless the prompt asks for more. No leaflets, cards, packaging, pouches or printed paper. No text, captions, logos, badges, seals, certification marks or watermarks anywhere in the image. Photorealistic commercial photography, natural skin tones, anatomically correct hands.",
+  "usage": {
+    "input": 439,
+    "output": 1274
+  },
+  "costUsd": 0.153758,
+  "generatedAt": "2026-09-30T03:56:17.045Z"
+}
